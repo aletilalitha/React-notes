@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Notes from "./pages/Notes";
 import CreateNote from "./pages/CreateNote";
 import EditNote from "./pages/EditNote";
@@ -17,9 +17,9 @@ const App = () => {
   }, [notes]);
   return (
     <main id="app">
-      <HashRouter>
+      <BrowserRouter basename="/React-notes">
         <Routes>
-          <Route path="/" element={<Notes notes={notes} />} />
+          <Route path="/React-notes" element={<Notes notes={notes} />} />
           <Route
             path="/create-note"
             element={<CreateNote setNotes={setNotes} />}
@@ -29,7 +29,7 @@ const App = () => {
             element={<EditNote notes={notes} setNotes={setNotes} />}
           />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </main>
   );
 };
