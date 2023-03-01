@@ -13,14 +13,14 @@ const Notes = ({ notes }) => {
   const [filteredNotes, setFilteredNotes] = useState(notes);
   const handleSearch = () => {
     setFilteredNotes(
-      notes.filter((note) => {
+      notes.filter((note)=> {
         if (note.title.toLowerCase().match(text.toLocaleLowerCase())) {
           return note;
         }
       })
     );
   };
-  useEffect(handleSearch, [text]);
+  useEffect(handleSearch,[text]);
   return (
     <section>
       <header className="notes__header">
@@ -45,7 +45,7 @@ const Notes = ({ notes }) => {
         </button>
       </header>
       <div className="notes__container">
-        {filteredNotes.length == 0 && (
+        {filteredNotes.length === 0 && (
           <p className="empty__notes">Note not found</p>
         )}
         {filteredNotes.map((note) => (
